@@ -22,7 +22,7 @@ func (a *AnomalyInfo) IsReported() bool {
 
 // IsExpired reports whether the reporting deadline has passed without a report.
 func (a *AnomalyInfo) IsExpired(now time.Time) bool {
-	return !a.IsReported() && now.Before(a.ReportDeadline)
+	return !a.IsReported() && now.After(a.ReportDeadline)
 }
 
 // WorkOrder is the core domain entity for inspection and maintenance work.
